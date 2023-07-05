@@ -24,11 +24,13 @@ extension ContextExt on BuildContext {
   popScreen<T extends Object?>({T? result}) async {
     try {
       if (Navigator.canPop(this)) {
-        CrashlyticsLogger.logError(
-            "pop screen ${widget.runtimeType.toString()}");
+        // CrashlyticsLogger.logError(
+        //     "pop screen ${widget.runtimeType.toString()}");
         Navigator.of(this, rootNavigator: true).pop(result);
       }
-    } catch (e) {}
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
   RelativeRect get widgetGlobalPosition {

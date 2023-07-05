@@ -13,5 +13,5 @@ abstract class Executable {
     return value;
   }
 
-  void dispose() {}
+  Future<void> dispose() async {}
 }
