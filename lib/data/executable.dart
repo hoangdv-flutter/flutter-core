@@ -9,7 +9,7 @@ abstract class Executable {
     if (_isBusy) return null;
     _isBusy = true;
     final value = await onProcess();
-    _isBusy = true;
+    _isBusy = false;
     return value;
   }
 
