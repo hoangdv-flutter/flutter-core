@@ -142,7 +142,7 @@ class _HSliderState extends BaseState<HSlider>
 
   void _updateProgressTouch(double dx, double width) {
     final progress =
-        min(max((dx / width * 100).round(), widget.min), widget.max);
+        min(max((dx / width * widget.max).round(), widget.min), widget.max);
     if (progress != _progress) {
       setState(() => _progress = progress);
       widget.onProgressChange?.call(progress);
