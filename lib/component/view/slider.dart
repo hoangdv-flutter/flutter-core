@@ -13,9 +13,15 @@ class HSlider extends StatefulWidget {
       this.trackColor = Colors.grey,
       this.progressColor = Colors.blue,
       this.progressHeight = 5,
-      this.onProgressChange});
+      this.onProgressChange,
+      this.onStartTrackingTouch,
+      this.onStopTrackingTouch});
 
   final Function(int progress)? onProgressChange;
+
+  final Function()? onStartTrackingTouch;
+
+  final Function(int progress)? onStopTrackingTouch;
 
   final Color trackColor;
 
@@ -154,10 +160,12 @@ class _HSliderState extends BaseState<HSlider>
       _controller.forward(from: _animation.value);
     }
     _touchEnd = false;
+    widget.onStartTrackingTouch?.call();
   }
 
   void _stopTouch() {
     _controller.reverse(from: _animation.value);
     _touchEnd = true;
+    widget.onStopTrackingTouch?.call(_progress);
   }
 }
