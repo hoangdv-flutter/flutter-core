@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class HSlider extends StatefulWidget {
       this.progressColor = Colors.blue,
       this.progressHeight = 5,
       this.onProgressChange,
+      this.progressStream,
       this.onStartTrackingTouch,
       this.onStopTrackingTouch});
 
@@ -35,6 +37,8 @@ class HSlider extends StatefulWidget {
 
   final int value;
 
+  final Stream<int>? progressStream;
+
   final double progressHeight;
 
   @override
@@ -44,6 +48,7 @@ class HSlider extends StatefulWidget {
 class _HSliderState extends BaseState<HSlider>
     with SingleTickerProviderStateMixin {
   var _progress = 0;
+  StreamSubscription? _progressSubs;
 
   late final _controller = AnimationController(vsync: this)
     ..duration = const Duration(milliseconds: 200)
@@ -60,11 +65,20 @@ class _HSliderState extends BaseState<HSlider>
   void initState() {
     super.initState();
     _progress = widget.value;
+    _progressSubs = widget.progressStream?.listen((event) {
+      if (_touchEnd) {
+        setState(() {
+          debugPrint("audio position $event");
+          _progress = event;
+        });
+      }
+    });
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _progressSubs?.cancel();
     super.dispose();
   }
 

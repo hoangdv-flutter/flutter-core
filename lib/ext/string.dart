@@ -14,6 +14,10 @@ extension StringNonNullExt on String {
     return Color(int.parse(buffer.toString(), radix: 16));
   }
 
+  String appendUrlPath(String path) {
+    return ("$this/$path").replaceAll(RegExp(r'\/{2,}'), "/");
+  }
+
   String get splitMoney {
     String getResultWithDot(String result) => result.let(
           call: (value) => result.isEmpty ? result : ".$result",
