@@ -12,18 +12,14 @@
 //   Future<String?> getPlatformVersion() => Future.value('42');
 // }
 //
-// void main() {
-//   final FlutterCorePlatform initialPlatform = FlutterCorePlatform.instance;
-//
-//   test('$MethodChannelFlutterCore is the default instance', () {
-//     expect(initialPlatform, isInstanceOf<MethodChannelFlutterCore>());
-//   });
-//
-//   test('getPlatformVersion', () async {
-//     FlutterCore flutterCorePlugin = FlutterCore();
-//     MockFlutterCorePlatform fakePlatform = MockFlutterCorePlatform();
-//     FlutterCorePlatform.instance = fakePlatform;
-//
-//     expect(await flutterCorePlugin.getPlatformVersion(), '42');
-//   });
-// }
+import 'package:flutter_core/ext/string.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+void main() {
+  test('append url path test', () async {
+    expect("a/".appendUrlPath("b"), 'a/b');
+    expect("a//".appendUrlPath("/b"), 'a/b');
+    expect("a/".appendUrlPath("/b"), 'a/b');
+    expect("/a/".appendUrlPath("/b/"), '/a/b/');
+  });
+}
