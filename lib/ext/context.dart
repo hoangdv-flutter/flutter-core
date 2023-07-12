@@ -7,6 +7,17 @@ import 'package:flutter_core/util/crash_log.dart';
 import '../data/response.dart';
 
 extension ContextExt on BuildContext {
+
+  pushDialog(Widget widget) {
+    Navigator.push(
+        this,
+        PageRouteBuilder(
+            opaque: false,
+            pageBuilder: (BuildContext context, Animation<double> animation,
+                    Animation<double> secondaryAnimation) =>
+                widget));
+  }
+
   Future<dynamic> pushScreen<T>(Route<T> route,
       {bool isReplacement = false}) async {
     final completer = Completer<dynamic>();
