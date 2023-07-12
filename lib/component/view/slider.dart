@@ -68,7 +68,6 @@ class _HSliderState extends BaseState<HSlider>
     _progressSubs = widget.progressStream?.listen((event) {
       if (_touchEnd) {
         setState(() {
-          debugPrint("audio position $event");
           _progress = event;
         });
       }
