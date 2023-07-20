@@ -2,12 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_core/ext/object.dart';
-import 'package:flutter_core/util/crash_log.dart';
 
 import '../data/response.dart';
 
 extension ContextExt on BuildContext {
-
   pushDialog(Widget widget) {
     Navigator.push(
         this,
@@ -55,6 +53,8 @@ extension ContextExt on BuildContext {
   BuildContext? get valid => takeIf(
         condition: (p0) => p0.mounted,
       );
+
+  bool get available => valid != null;
 
   void showSnackBar({required String message}) {
     ScaffoldMessenger.of(this).showSnackBar(SnackBar(content: Text(message)));
