@@ -5,10 +5,12 @@ class RouterCreator {
   static createRouter(
           {required RoutePageBuilder pageBuilder,
           RouteTransitionsBuilder? transitionsBuilder,
+          RouteSettings? settings,
           Duration? transitionDuration,
           Duration? reverserDuration}) =>
       PageRouteBuilder(
           pageBuilder: pageBuilder,
+          settings: settings,
           transitionDuration:
               transitionDuration ?? const Duration(milliseconds: 200),
           reverseTransitionDuration:
