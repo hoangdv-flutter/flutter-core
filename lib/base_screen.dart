@@ -2,13 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_core/ext/context.dart';
 import 'package:flutter_core/util/crash_log.dart';
 
-
 abstract class BaseScreenState<S extends StatefulWidget> extends State<S> {
   Future<bool> onBackPressed(BuildContext context) async {
-    // if (ModalRoute.of(context)?.settings.name == runtimeType.toString()) {
-    //   context.popScreen();
-    //   return false;
-    // }
     context.popScreen();
     return false;
   }
