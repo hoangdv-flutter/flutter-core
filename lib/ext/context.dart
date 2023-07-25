@@ -42,9 +42,14 @@ extension ContextExt on BuildContext {
     }
   }
 
+  Offset get globalPosition {
+    RenderBox renderBox = findRenderObject() as RenderBox;
+    return renderBox.localToGlobal(Offset.zero);
+  }
+
   RelativeRect get widgetGlobalPosition {
     RenderBox renderBox = findRenderObject() as RenderBox;
-    var offset = renderBox.localToGlobal(Offset.zero);
+    final offset = renderBox.localToGlobal(Offset.zero);
     Rect rect = Rect.fromLTWH(
         offset.dx, offset.dy, renderBox.size.width, renderBox.size.height);
     return RelativeRect.fromSize(rect, renderBox.size);
