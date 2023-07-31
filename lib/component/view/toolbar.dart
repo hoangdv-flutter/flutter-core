@@ -6,13 +6,15 @@ import 'package:flutter_core/theme/app_theme.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AppBarHelper {
-  static AppBar buildAppbar(Widget toolbar) {
+  static AppBar buildAppbar(Widget toolbar,
+      {SystemUiOverlayStyle? systemOverlayStyle}) {
     return AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 8.h,
         elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle.light
-            .copyWith(statusBarColor: Colors.transparent),
+        systemOverlayStyle: systemOverlayStyle ??
+            SystemUiOverlayStyle.light
+                .copyWith(statusBarColor: Colors.transparent),
         backgroundColor: Colors.transparent,
         flexibleSpace: toolbar);
   }
