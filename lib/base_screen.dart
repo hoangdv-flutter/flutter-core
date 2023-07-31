@@ -51,13 +51,23 @@ class ScreenTemplate extends StatelessWidget {
 
   final List<Widget> additionBackground;
 
+  final Color backgroundColor;
+
   const ScreenTemplate(
-      {Key? key, required this.child, this.additionBackground = const []})
+      {Key? key,
+      required this.child,
+      this.additionBackground = const [],
+      this.backgroundColor = Colors.white})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
+      Positioned.fill(
+        child: Container(
+          color: backgroundColor,
+        ),
+      ),
       ...additionBackground,
       SafeArea(child: child),
     ]);
