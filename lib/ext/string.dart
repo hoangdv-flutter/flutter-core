@@ -15,7 +15,9 @@ extension StringNonNullExt on String {
   }
 
   String appendUrlPath(String path) {
-    return ("$this/$path").replaceAll(RegExp(r'\/{2,}'), "/");
+    return ("$this/$path")
+        .replaceAll(RegExp(r'\/{2,}'), "/")
+        .replaceAll(":/", "://");
   }
 
   String get splitMoney {
