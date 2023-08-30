@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter_core/theme/color/app_color.dart';
 
 class ColorLight extends AppColor {
+  const ColorLight();
   @override
   Color get colorBlack => const Color(0xFF000000);
 
