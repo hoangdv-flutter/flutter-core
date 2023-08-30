@@ -64,4 +64,12 @@ extension ContextExt on BuildContext {
   void showSnackBar({required String message}) {
     ScaffoldMessenger.of(this).showSnackBar(SnackBar(content: Text(message)));
   }
+
+  T? argument<T>() {
+    final arg = ModalRoute.of(this)?.settings.arguments;
+    if (arg is T) {
+      return arg;
+    }
+    return null;
+  }
 }
