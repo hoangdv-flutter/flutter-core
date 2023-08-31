@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_core/base_stateful.dart';
 import 'package:flutter_core/ext/list.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'bottom_menu_cubit.dart';
 
@@ -15,6 +14,8 @@ class BottomNavigationView extends StatefulWidget {
 
   final Decoration? decoration;
 
+  final Duration duration;
+
   final Function(int index, BottomMenuItem menu, double t, bool isSelected)
       onBuildItem;
 
@@ -23,7 +24,8 @@ class BottomNavigationView extends StatefulWidget {
       required this.menuItems,
       this.onItemSelected,
       required this.onBuildItem,
-      this.decoration})
+      this.decoration,
+      this.duration = const Duration(milliseconds: 500)})
       : super();
 
   @override
@@ -48,7 +50,7 @@ class _BottomNavigationViewState extends BaseState<BottomNavigationView>
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: widget.duration,
     )..addListener(() {
         setState(() {});
       });
@@ -72,7 +74,6 @@ class _BottomNavigationViewState extends BaseState<BottomNavigationView>
       selectPage(page);
     });
     return Container(
-      padding: EdgeInsets.only(top: 1.h),
       decoration: widget.decoration,
       child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -92,6 +93,7 @@ class _BottomNavigationViewState extends BaseState<BottomNavigationView>
       onTap: () {
         selectPage(index);
       },
+      behavior: HitTestBehavior.opaque,
       child: widget.onBuildItem.call(index, e, t, isSelected),
     ));
   }

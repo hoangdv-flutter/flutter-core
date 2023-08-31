@@ -25,6 +25,8 @@ class Toolbar extends StatelessWidget {
 
   final String? title;
 
+  final Widget? titleWidget;
+
   final TextStyle? titleStyle;
 
   final Function()? onIconPressed;
@@ -37,7 +39,8 @@ class Toolbar extends StatelessWidget {
       this.title,
       this.menuItems,
       this.onIconPressed,
-      this.titleStyle});
+      this.titleStyle,
+      this.titleWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +53,9 @@ class Toolbar extends StatelessWidget {
       children.add(IconButton(
           onPressed: onIconPressed, iconSize: iconSize, icon: icon!));
     }
-
-    if (!title.isNullOrEmpty) {
+    if (titleWidget != null) {
+      children.add(Expanded(child: titleWidget!));
+    } else if (!title.isNullOrEmpty) {
       children.add(Expanded(
           child: Center(
         child: Text(
