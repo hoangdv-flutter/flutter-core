@@ -17,11 +17,11 @@ dependencies:
   injectable: ^2.1.1
   sqflite: ^2.2.6
   shared_preferences: ^2.0.20
-  permission_handler: ^10.3.0
+  permission_handler: any
   flutter_bloc: ^8.1.2
-  firebase_crashlytics: ^3.1.0
+  firebase_crashlytics: any
   async: ^2.10.0
-  connectivity_plus: ^3.0.4
+  connectivity_plus: any
   path_provider: ^2.0.15
   responsive_sizer: ^3.1.1
   rxdart: ^0.27.7

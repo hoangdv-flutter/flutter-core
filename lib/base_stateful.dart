@@ -5,8 +5,8 @@ abstract class BaseState<W extends StatefulWidget> extends State<W> {
   @override
   void setState(VoidCallback fn) {
     CrashlyticsLogger.logError("setState from ${runtimeType.toString()}");
-    if (!context.mounted || !mounted) return;
     try {
+      if (!context.mounted || !mounted) return;
       super.setState(fn);
     } catch (e) {}
   }
