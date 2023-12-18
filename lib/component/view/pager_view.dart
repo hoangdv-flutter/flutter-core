@@ -42,6 +42,7 @@ class _PagerViewState extends BaseState<PagerView> {
     return PageView(
       controller: pageController,
       children: widget.children,
+      physics: const NeverScrollableScrollPhysics(),
       onPageChanged: (page) {
         selectedItem = page;
         if (_notifyPageDebounce?.isActive != true) {
