@@ -6,8 +6,8 @@ import 'package:flutter_core/ext/object.dart';
 import '../data/response.dart';
 
 extension ContextExt on BuildContext {
-  pushDialog(Widget widget) {
-    Navigator.push(
+  Future<dynamic> pushDialog(Widget widget) async {
+    await Navigator.push(
         this,
         PageRouteBuilder(
             opaque: false,
