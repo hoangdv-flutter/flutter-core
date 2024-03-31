@@ -32,10 +32,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
-  floor_generator: ^1.4.1
-  injectable_generator: ^2.1.1
-  build_runner: ^2.1.2
+  flutter_lints: any
+  floor_generator: any
+  injectable_generator: any
+  build_runner: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

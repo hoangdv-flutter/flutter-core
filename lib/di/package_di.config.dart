@@ -29,7 +29,7 @@ extension GetItInjectableX on _i1.GetIt {
     );
     final appModule = _$AppModule();
     gh.singleton<_i3.NetWorkChecker>(
-      _i3.NetWorkChecker(),
+      () => _i3.NetWorkChecker(),
       dispose: (i) => i.dispose(),
     );
     await gh.singletonAsync<_i4.PackageInfo>(
@@ -41,7 +41,7 @@ extension GetItInjectableX on _i1.GetIt {
       preResolve: true,
     );
     gh.singleton<_i6.PremiumHolder>(
-      _i6.PremiumHolder(gh<_i5.SharedPreferences>()),
+      () => _i6.PremiumHolder(gh<_i5.SharedPreferences>()),
       dispose: (i) => i.disposed(),
     );
     return this;
