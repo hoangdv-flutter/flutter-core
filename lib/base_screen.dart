@@ -36,9 +36,10 @@ abstract class BaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CrashlyticsLogger.logError(runtimeType.toString());
-    return WillPopScope(
-        onWillPop: () {
-          return onBackPressed(context);
+    return PopScope(
+        canPop: true,
+        onPopInvoked: (didPop) {
+          onBackPressed(context);
         },
         child: onBuild(context));
   }
