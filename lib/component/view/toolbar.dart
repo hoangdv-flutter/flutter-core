@@ -71,6 +71,8 @@ class Toolbar extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
       )));
+    } else {
+      children.add(Expanded(child: Container()));
     }
     if (!menuItems.isNullOrEmpty) {
       children.add(Row(
@@ -91,11 +93,8 @@ class Toolbar extends StatelessWidget {
         width: iconSize,
       ));
     }
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 4.w),
-      child: Row(
-        children: children,
-      ),
+    return Row(
+      children: children,
     );
   }
 
