@@ -84,7 +84,7 @@ class Toolbar extends StatelessWidget {
     }
     if (left < right) {
       children.insert(
-          0,
+          1,
           SizedBox(
             width: iconSize,
           ));

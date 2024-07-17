@@ -18,10 +18,11 @@ extension StreamExt<T> on StreamController<T> {
 
 extension BSExt<T> on BehaviorSubject<T> {
   void addSafety(T value) {
-    if (!isClosed) {
+    if (!isClosed && value != this.valueOrNull) {
       sink.add(value);
     }
   }
+
   void addErrorSafety(Object value, [StackTrace? stackTrace]) {
     if (!isClosed) {
       addError(value, stackTrace);
