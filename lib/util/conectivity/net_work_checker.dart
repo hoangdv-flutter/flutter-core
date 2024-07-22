@@ -1,8 +1,4 @@
-import 'dart:async';
-
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
+part of '../util.dart';
 
 @singleton
 class NetWorkChecker {

@@ -1,6 +1,5 @@
-import 'dart:io';
+part of 'util.dart';
 
-import 'package:path_provider/path_provider.dart';
 
 class DirManager {
   static Future<String> getInternalDir(String dir) async {

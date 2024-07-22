@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_core/util/crash_log.dart';
+
+import 'core.dart';
 
 abstract class BaseState<W extends StatefulWidget> extends State<W> {
   @override

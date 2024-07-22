@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+part of 'presenter.dart';
 
 abstract class BaseCubit<T> extends Cubit<T> {
   BaseCubit(super.initialState);

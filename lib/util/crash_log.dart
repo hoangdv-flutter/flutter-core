@@ -1,4 +1,4 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+part of 'util.dart';
 
 class CrashlyticsLogger {
   static var _lastLog = "";

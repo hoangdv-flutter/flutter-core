@@ -1,5 +1,5 @@
 // TODO Implement this library.
-import 'package:flutter_core/util/constant.dart';
+import 'package:flutter_core/core.dart';
 
 class Result<T> {
   final T? data;
