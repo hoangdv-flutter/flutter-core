@@ -1,3 +1,5 @@
+part of 'util.dart';
+
 class Constants {
   static const topSoundRemoteConfigName = "top_sound";
 

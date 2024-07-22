@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_core/base_dialog.dart';
-import 'package:flutter_core/ext/string.dart';
-import 'package:flutter_core/theme/app_theme.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+part of '../util.dart';
 
 class ConfirmDialog extends BaseDialogStateless {
   final String? title;
@@ -35,7 +31,7 @@ class ConfirmDialog extends BaseDialogStateless {
                 borderRadius: BorderRadius.circular(6.w)),
             child: Column(
               children: [
-                if (!title.isNullOrEmpty)
+                if (title.isNullOrEmpty)
                   SizedBox(
                     width: double.infinity,
                     child: Text(
