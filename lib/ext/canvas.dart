@@ -13,4 +13,10 @@ extension OffsetExt on Offset {
   double angleWith(Offset other) {
     return acos((dx * other.dx + dy * other.dy) / (distance * other.distance));
   }
+
+  Offset rotate(double radians) {
+    final cosV = cos(radians);
+    final sinV = sin(radians);
+    return Offset(cosV * dx - sinV * dy, sinV * dx + cosV * dy);
+  }
 }

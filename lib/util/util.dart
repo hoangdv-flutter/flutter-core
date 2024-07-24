@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -19,3 +20,4 @@ part 'debug_config.dart';
 part 'dir_manager.dart';
 part 'page_router_creator.dart';
 part 'transition_helper.dart';
+part 'math/polygon.dart';
