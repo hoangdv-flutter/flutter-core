@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core/ext/context.dart';
 import 'core.dart';
 
 abstract class BaseScreenState<S extends StatefulWidget> extends State<S> {

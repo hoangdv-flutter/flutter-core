@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_core/base_stateful.dart';
-import 'package:flutter_core/ext/context.dart';
+import 'package:flutter_core/core.dart';
 
 mixin BaseDialog {}
 

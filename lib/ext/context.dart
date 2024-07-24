@@ -1,9 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_core/ext/object.dart';
-
-import '../data/response.dart';
+part of 'exts.dart';
 
 extension ContextExt on BuildContext {
   Future<dynamic> pushDialog(Widget widget) async {

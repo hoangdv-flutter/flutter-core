@@ -8,3 +8,4 @@ export 'base_dialog.dart';
 export 'base_stateful.dart';
 export 'data/data.dart';
 export 'presenter/presenter.dart';
+export 'di/package_di.dart';
