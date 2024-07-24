@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_core/ext/list.dart';
 import 'package:flutter_core/ext/string.dart';
@@ -29,6 +30,8 @@ class Toolbar extends StatelessWidget {
 
   final TextStyle? titleStyle;
 
+  final Alignment alignTitle;
+
   final Function()? onIconPressed;
 
   final List<MenuItem>? menuItems;
@@ -40,7 +43,8 @@ class Toolbar extends StatelessWidget {
       this.menuItems,
       this.onIconPressed,
       this.titleStyle,
-      this.titleWidget});
+      this.titleWidget,
+      this.alignTitle = Alignment.center});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +53,7 @@ class Toolbar extends StatelessWidget {
     var right = 0;
     final children = <Widget>[];
     if (icon != null) {
-      left++;
+      if (alignTitle == Alignment.center) left++;
       children.add(IconButton(
           onPressed: onIconPressed, iconSize: iconSize, icon: icon!));
     }
@@ -57,27 +61,25 @@ class Toolbar extends StatelessWidget {
       children.add(Expanded(child: titleWidget!));
     } else if (!title.isNullOrEmpty) {
       children.add(Expanded(
-          child: Center(
-        child: Text(
-          title!,
-          style: titleStyle ??
-              TextStyle(
-                  fontFamily: 'titleFont',
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: appColor.colorBlack),
-          textAlign: TextAlign.center,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-        ),
-      )));
+          child: Text(
+            title!,
+            style: titleStyle ??
+                TextStyle(
+                    fontFamily: 'titleFont',
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                    color: appColor.colorBlack),
+            textAlign: alignTitle == Alignment.center? TextAlign.center : TextAlign.left,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          )));
     } else {
       children.add(Expanded(child: Container()));
     }
     if (!menuItems.isNullOrEmpty) {
       children.add(Row(
         children: List.generate(menuItems!.length, (index) {
-          right++;
+          if (alignTitle == Alignment.center) right++;
           return _buildMenuItemView(menuItems![index], iconSize);
         }),
       ));
