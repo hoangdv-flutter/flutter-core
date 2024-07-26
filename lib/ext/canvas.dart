@@ -20,7 +20,19 @@ extension OffsetExt on Offset {
     return Offset(cosV * dx - sinV * dy, sinV * dx + cosV * dy);
   }
 
-  Offset normalize(){
+  Offset normalize() {
     return this / distance;
+  }
+
+  Offset divBySize(Size size) {
+    return Offset(dx / size.width, dy / size.height);
+  }
+
+  Offset timesBySize(Size size) {
+    return Offset(dx * size.width, dy * size.height);
+  }
+
+  Offset divByOther(Offset other) {
+    return Offset(dx / other.dx, dy / other.dy);
   }
 }
