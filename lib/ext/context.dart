@@ -30,10 +30,11 @@ extension ContextExt on BuildContext {
       if (Navigator.canPop(this)) {
         // CrashlyticsLogger.logError(
         //     "pop screen ${widget.runtimeType.toString()}");
-        Navigator.of(this, rootNavigator: true).pop(result);
+        Navigator.pop(this, result);
+        // Navigator.of(this, rootNavigator: true).pop(result);
       }
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint("popScreen ${e.toString()}");
     }
   }
 

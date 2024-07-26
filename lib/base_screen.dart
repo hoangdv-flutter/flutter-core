@@ -10,11 +10,9 @@ abstract class BaseScreenState<S extends StatefulWidget> extends State<S> {
   @override
   Widget build(BuildContext context) {
     CrashlyticsLogger.logError(runtimeType.toString());
-    return WillPopScope(
-        onWillPop: () {
-          return onBackPressed(context);
-        },
-        child: onBuild(context));
+    return WillPopScope(onWillPop: () {
+      return onBackPressed(context);
+    }, child: onBuild(context));
   }
 
   Widget onBuild(BuildContext context);
@@ -35,12 +33,11 @@ abstract class BaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CrashlyticsLogger.logError(runtimeType.toString());
-    return PopScope(
-        canPop: true,
-        onPopInvoked: (didPop) {
-          onBackPressed(context);
-        },
-        child: onBuild(context));
+    // return PopScope(canPop: true, onPopInvoked: (didPop) {
+    //   onBackPressed(context);
+    // }, child: onBuild(context));
+
+    return onBuild(context);
   }
 
   Widget onBuild(BuildContext context);
@@ -54,20 +51,13 @@ class ScreenTemplate extends StatelessWidget {
   final Color backgroundColor;
 
   const ScreenTemplate(
-      {Key? key,
-      required this.child,
-      this.additionBackground = const [],
-      this.backgroundColor = Colors.white})
-      : super(key: key);
+      {Key? key, required this.child, this.additionBackground = const [
+      ], this.backgroundColor = Colors.white}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Positioned.fill(
-        child: Container(
-          color: backgroundColor,
-        ),
-      ),
+      Positioned.fill(child: Container(color: backgroundColor,),),
       ...additionBackground,
       SafeArea(child: child),
     ]);
