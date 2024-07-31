@@ -17,10 +17,10 @@ extension StreamExt<T> on StreamController<T> {
 }
 
 extension BSExt<T> on BehaviorSubject<T> {
-  bool addSafety(T value) {
-    final ableToAdd = !isClosed && value != this.valueOrNull;
+  bool addSafety(T newValue, {bool allowDuplicate = false}) {
+    final ableToAdd = !isClosed && (newValue != valueOrNull && !allowDuplicate);
     if (ableToAdd) {
-      sink.add(value);
+      sink.add(newValue);
     }
     return ableToAdd;
   }
