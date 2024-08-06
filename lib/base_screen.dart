@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'core.dart';
 
-abstract class BaseScreenState<S extends StatefulWidget> extends State<S> {
+abstract class BaseScreenState<S extends StatefulWidget> extends BaseState<S> {
   Future<bool> onBackPressed(BuildContext context) async {
     context.popScreen();
     return false;
@@ -10,9 +11,16 @@ abstract class BaseScreenState<S extends StatefulWidget> extends State<S> {
   @override
   Widget build(BuildContext context) {
     CrashlyticsLogger.logError(runtimeType.toString());
-    return WillPopScope(onWillPop: () {
-      return onBackPressed(context);
-    }, child: onBuild(context));
+    return PopScope(
+        onPopInvoked: (didPop) async {
+          if (didPop) return;
+          final r = await onBackPressed(context);
+          if (r && mounted) {
+            context.popScreen();
+          }
+        },
+        canPop: false,
+        child: onBuild(context));
   }
 
   Widget onBuild(BuildContext context);
@@ -22,10 +30,6 @@ abstract class BaseScreen extends StatelessWidget {
   const BaseScreen({super.key});
 
   Future<bool> onBackPressed(BuildContext context) async {
-    // if (ModalRoute.of(context)?.settings.name == runtimeType.toString()) {
-    //   context.popScreen();
-    //   return false;
-    // }
     context.valid?.popScreen();
     return false;
   }
@@ -33,9 +37,16 @@ abstract class BaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CrashlyticsLogger.logError(runtimeType.toString());
-    // return PopScope(canPop: true, onPopInvoked: (didPop) {
-    //   onBackPressed(context);
-    // }, child: onBuild(context));
+    return PopScope(
+        canPop: false,
+        onPopInvoked: (didPop) async {
+          if (didPop) return;
+          final r = await onBackPressed(context);
+          if (r && !context.mounted) {
+            context.popScreen();
+          }
+        },
+        child: onBuild(context));
 
     return onBuild(context);
   }
@@ -51,13 +62,20 @@ class ScreenTemplate extends StatelessWidget {
   final Color backgroundColor;
 
   const ScreenTemplate(
-      {Key? key, required this.child, this.additionBackground = const [
-      ], this.backgroundColor = Colors.white}) : super(key: key);
+      {Key? key,
+      required this.child,
+      this.additionBackground = const [],
+      this.backgroundColor = Colors.white})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Positioned.fill(child: Container(color: backgroundColor,),),
+      Positioned.fill(
+        child: Container(
+          color: backgroundColor,
+        ),
+      ),
       ...additionBackground,
       SafeArea(child: child),
     ]);

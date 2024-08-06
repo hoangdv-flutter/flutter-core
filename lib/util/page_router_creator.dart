@@ -1,7 +1,8 @@
 part of 'util.dart';
 
-
 class RouterCreator {
+  RouterCreator._();
+
   static createRouter(
           {required RoutePageBuilder pageBuilder,
           RouteTransitionsBuilder? transitionsBuilder,
