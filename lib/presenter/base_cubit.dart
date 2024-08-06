@@ -1,4 +1,3 @@
-
 part of 'presenter.dart';
 
 abstract class BaseCubit<T> extends Cubit<T> {
@@ -16,9 +15,15 @@ abstract class BaseCubit<T> extends Cubit<T> {
   @mustCallSuper
   @override
   void emit(T state) {
-    if(isClosed) return;
+    if (isClosed) return;
     dataOrNull = state;
     super.emit(state);
+  }
+
+  @override
+  Future<void> close() {
+    debugPrint("close cubit $runtimeType");
+    return super.close();
   }
 
   @protected

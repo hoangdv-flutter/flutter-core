@@ -6,6 +6,7 @@ class BaseChangeNotifier extends ChangeNotifier {
 
   @override
   void dispose() {
+    debugPrint("disposed $runtimeType");
     disposed = true;
     super.dispose();
   }

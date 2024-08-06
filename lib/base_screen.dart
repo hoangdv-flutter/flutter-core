@@ -37,16 +37,16 @@ abstract class BaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CrashlyticsLogger.logError(runtimeType.toString());
-    return PopScope(
-        canPop: false,
-        onPopInvoked: (didPop) async {
-          if (didPop) return;
-          final r = await onBackPressed(context);
-          if (r && !context.mounted) {
-            context.popScreen();
-          }
-        },
-        child: onBuild(context));
+    // return PopScope(
+    //     canPop: false,
+    //     onPopInvoked: (didPop) async {
+    //       if (didPop) return;
+    //       final r = await onBackPressed(context);
+    //       if (r && !context.mounted) {
+    //         context.popScreen();
+    //       }
+    //     },
+    //     child: onBuild(context));
 
     return onBuild(context);
   }
