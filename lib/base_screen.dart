@@ -1,32 +1,43 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'core.dart';
 
-abstract class BaseScreenState<S extends StatefulWidget> extends BaseState<S> {
+part 'component/navigation/base_screen_mixin.dart';
+
+abstract class BaseScreenState<S extends StatefulWidget> extends BaseState<S>
+    with BaseScreenMixin {
   Future<bool> onBackPressed(BuildContext context) async {
     context.popScreen();
     return false;
   }
 
+  void onBackPressedIOS() {}
+
   @override
   Widget build(BuildContext context) {
     CrashlyticsLogger.logError(runtimeType.toString());
     return PopScope(
-        onPopInvoked: (didPop) async {
+        onPopInvokedWithResult: (didPop, result) async {
+          if (Platform.isIOS && didPop) {
+            onBackPressedIOS();
+            return;
+          }
           if (didPop) return;
           final r = await onBackPressed(context);
-          if (r && mounted) {
+          if (r && !context.mounted) {
             context.popScreen();
           }
         },
-        canPop: false,
+        canPop: canPop,
         child: onBuild(context));
   }
 
   Widget onBuild(BuildContext context);
 }
 
-abstract class BaseScreen extends StatelessWidget {
+abstract class BaseScreen extends StatelessWidget with BaseScreenMixin {
   const BaseScreen({super.key});
 
   Future<bool> onBackPressed(BuildContext context) async {
@@ -34,21 +45,24 @@ abstract class BaseScreen extends StatelessWidget {
     return false;
   }
 
+  void onBackPressedIOS(BuildContext context) {}
+
   @override
   Widget build(BuildContext context) {
-    CrashlyticsLogger.logError(runtimeType.toString());
-    // return PopScope(
-    //     canPop: false,
-    //     onPopInvoked: (didPop) async {
-    //       if (didPop) return;
-    //       final r = await onBackPressed(context);
-    //       if (r && !context.mounted) {
-    //         context.popScreen();
-    //       }
-    //     },
-    //     child: onBuild(context));
-
-    return onBuild(context);
+    return PopScope(
+        canPop: canPop,
+        onPopInvokedWithResult: (didPop, result) async {
+          if (Platform.isIOS && didPop) {
+            onBackPressedIOS(context);
+            return;
+          }
+          if (didPop) return;
+          final r = await onBackPressed(context);
+          if (r && !context.mounted) {
+            context.popScreen();
+          }
+        },
+        child: onBuild(context));
   }
 
   Widget onBuild(BuildContext context);

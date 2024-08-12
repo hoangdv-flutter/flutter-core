@@ -36,8 +36,6 @@ class _BottomNavigationViewState extends BaseState<BottomNavigationView>
     with SingleTickerProviderStateMixin {
   var selectedItem = 0;
 
-  var _previousSelectedItem = 0;
-
   late Animation<double> animation;
   late AnimationController animationController;
 
@@ -85,8 +83,6 @@ class _BottomNavigationViewState extends BaseState<BottomNavigationView>
 
   Widget _buildMenuItem(int index, BottomMenuItem e) {
     final isSelected = index == selectedItem;
-    final isPreviousSelected = index == _previousSelectedItem;
-    final needToAnimate = isSelected || isPreviousSelected;
     final t = isSelected ? animation.value : 1 - animation.value;
     return Expanded(
         child: GestureDetector(
@@ -101,7 +97,6 @@ class _BottomNavigationViewState extends BaseState<BottomNavigationView>
   void selectPage(int index) {
     if (index == selectedItem) return;
     setState(() {
-      _previousSelectedItem = selectedItem;
       selectedItem = index;
       context.read<PageControllerCubit>().selectPage(index);
       widget.onItemSelected?.call(selectedItem);
