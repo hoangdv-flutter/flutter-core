@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:flutter_core/core.dart';
 
 part 'gradient_button/gradient_button.dart';

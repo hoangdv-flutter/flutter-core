@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_core/core.dart';
 import 'package:flutter_core/ext/list.dart';
 import 'package:flutter_core/ext/string.dart';
 import 'package:flutter_core/theme/app_theme.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AppBarHelper {
   static AppBar buildAppbar(Widget toolbar,
@@ -48,7 +47,7 @@ class Toolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iconSize = 10.w;
+    final iconSize = 10.p;
     var left = 0;
     var right = 0;
     final children = <Widget>[];
@@ -62,17 +61,18 @@ class Toolbar extends StatelessWidget {
     } else if (!title.isNullOrEmpty) {
       children.add(Expanded(
           child: Text(
-            title!,
-            style: titleStyle ??
-                TextStyle(
-                    fontFamily: 'titleFont',
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                    color: appColor.colorBlack),
-            textAlign: alignTitle == Alignment.center? TextAlign.center : TextAlign.left,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          )));
+        title!,
+        style: titleStyle ??
+            TextStyle(
+                fontFamily: 'titleFont',
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
+                color: appColor.colorBlack),
+        textAlign:
+            alignTitle == Alignment.center ? TextAlign.center : TextAlign.left,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      )));
     } else {
       children.add(Expanded(child: Container()));
     }
