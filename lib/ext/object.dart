@@ -1,3 +1,5 @@
+part of 'exts.dart';
+
 extension ObjectExt<T extends Object> on T {
   T? takeIf({required bool Function(T value) condition}) {
     if (condition(this)) {

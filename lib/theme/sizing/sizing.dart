@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_core/ext/object.dart';
+import 'package:flutter_core/core.dart';
 
 part 'device.dart';
 
