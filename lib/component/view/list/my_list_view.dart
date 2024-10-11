@@ -1,10 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_core/base_stateful.dart';
+import 'package:flutter_core/core.dart';
 import 'package:flutter_core/ext/list.dart';
 import 'package:flutter_core/theme/app_theme.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 abstract class MyListView<D> extends StatefulWidget {
   const MyListView({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_core/ext/list.dart';
-import 'package:flutter_core/ext/object.dart';
+import 'package:flutter_core/core.dart';
 
 extension StringExt on String? {
   bool get isNullOrEmpty => this?.isEmpty != false;
