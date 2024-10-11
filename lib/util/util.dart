@@ -13,11 +13,12 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../base_dialog.dart';
 
 part 'conectivity/net_work_checker.dart';
-part 'global_dialog/confirm_dialog.dart';
 part 'constant.dart';
 part 'crash_log.dart';
 part 'debug_config.dart';
 part 'dir_manager.dart';
+part 'global/global_state_manager.dart';
+part 'global_dialog/confirm_dialog.dart';
+part 'math/polygon.dart';
 part 'page_router_creator.dart';
 part 'transition_helper.dart';
-part 'math/polygon.dart';
