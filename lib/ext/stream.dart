@@ -18,7 +18,7 @@ extension StreamExt<T> on StreamController<T> {
 
 extension BSExt<T> on BehaviorSubject<T> {
   bool addSafety(T newValue, {bool allowDuplicate = false}) {
-    final ableToAdd = !isClosed && (newValue != valueOrNull && !allowDuplicate);
+    final ableToAdd = !isClosed && (newValue != valueOrNull || allowDuplicate);
     if (ableToAdd) {
       sink.add(newValue);
     }
