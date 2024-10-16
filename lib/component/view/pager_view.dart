@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_core/base_stateful.dart';
 import 'package:flutter_core/component/view/bottom_nav/bottom_menu_cubit.dart';
+import 'package:flutter_core/core.dart';
 
 class PagerView extends StatefulWidget {
   final Function(int)? onPageSelected;
