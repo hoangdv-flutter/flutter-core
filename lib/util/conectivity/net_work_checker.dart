@@ -18,8 +18,15 @@ class NetWorkChecker {
 
   NetWorkChecker() {
     _networkStateSubs = Connectivity().onConnectivityChanged.listen((event) {
-      isNetworkAvailable = _networkConditions.contains(event);
-      _networkAvailableStream.addSafety(isNetworkAvailable);
+      var hasNetwork = false;
+      for (final e in event) {
+        if (_networkConditions.contains(e)) {
+          hasNetwork = true;
+          break;
+        }
+      }
+      isNetworkAvailable = hasNetwork;
+      _networkAvailableStream.addSafety(hasNetwork);
     });
   }
 
