@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import 'core.dart';
+import '../core.dart';
 
-part 'component/navigation/base_screen_mixin.dart';
+part 'navigation/base_screen_mixin.dart';
 
 abstract class BaseScreenState<S extends StatefulWidget> extends BaseState<S>
     with BaseScreenMixin {
