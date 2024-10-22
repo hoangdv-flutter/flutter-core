@@ -6,6 +6,10 @@ class NetWorkChecker {
 
   StreamSubscription? _networkStateSubs;
 
+  late final BehaviorSubject<bool> _networkAvailableStream =
+      BehaviorSubject.seeded(isNetworkAvailable);
+  Stream<bool> get networkAvailableStream => _networkAvailableStream;
+
   final _networkConditions = [
     ConnectivityResult.mobile,
     ConnectivityResult.wifi,
@@ -15,6 +19,7 @@ class NetWorkChecker {
   NetWorkChecker() {
     _networkStateSubs = Connectivity().onConnectivityChanged.listen((event) {
       isNetworkAvailable = _networkConditions.contains(event);
+      _networkAvailableStream.addSafety(isNetworkAvailable);
     });
   }
 
