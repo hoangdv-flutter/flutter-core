@@ -1,4 +1,5 @@
-import 'package:get_it/get_it.dart';
+part of 'exts.dart';
+
 
 T appInject<T extends Object>() => GetIt.I<T>();
 

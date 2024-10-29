@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_core/core.dart';
-import 'package:flutter_core/ext/list.dart';
-import 'package:flutter_core/ext/string.dart';
 import 'package:flutter_core/theme/app_theme.dart';
 
 class AppBarHelper {

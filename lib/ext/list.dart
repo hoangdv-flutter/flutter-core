@@ -1,4 +1,5 @@
-import 'dart:math';
+part of 'exts.dart';
+
 
 extension ListExt<T> on List<T> {
   List<G> convert<G>(Function(int index, T element) onConvert) {

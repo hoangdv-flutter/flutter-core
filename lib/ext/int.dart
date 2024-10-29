@@ -1,5 +1,5 @@
-import 'package:intl/intl.dart';
-import 'package:sprintf/sprintf.dart';
+part of 'exts.dart';
+
 
 extension IntExt on int {
   String millisToDateFormat({String format = "dd/MM/yyyy"}) {

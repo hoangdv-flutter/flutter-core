@@ -1,4 +1,5 @@
-import 'package:sprintf/sprintf.dart';
+part of 'exts.dart';
+
 
 extension DurationExt on Duration {
   String get toMinuteAndSeconds {

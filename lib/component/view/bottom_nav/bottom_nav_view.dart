@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_core/core.dart';
-import 'package:flutter_core/ext/list.dart';
 
 import 'bottom_menu_cubit.dart';
 

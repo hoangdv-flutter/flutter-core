@@ -1,4 +1,4 @@
-import 'dart:ui';
+part of 'exts.dart';
 
 extension ColorExt on Color {
   String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'

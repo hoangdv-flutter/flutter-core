@@ -12,7 +12,7 @@
 //   Future<String?> getPlatformVersion() => Future.value('42');
 // }
 //
-import 'package:flutter_core/ext/string.dart';
+import 'package:flutter_core/core.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

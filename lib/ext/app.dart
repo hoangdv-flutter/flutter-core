@@ -1,4 +1,4 @@
-import 'package:flutter_core/data/response.dart';
+part of 'exts.dart';
 
 Future<Response<T>> process<T>(Future<T> Function() onProcess) async {
   try {

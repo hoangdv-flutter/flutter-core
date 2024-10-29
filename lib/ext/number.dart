@@ -1,7 +1,8 @@
-import 'dart:math' as math;
+part of 'exts.dart';
+
 
 extension NumberExt on num {
-  num surroundWithRange(num min, num max) {
-    return math.max(min, math.min(max, this));
+  num surroundWithRange(num minNum, num maxNum) {
+    return max(minNum, min(maxNum, this));
   }
 }

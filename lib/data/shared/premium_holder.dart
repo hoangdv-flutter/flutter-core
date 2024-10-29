@@ -1,4 +1,4 @@
-import 'package:flutter_core/ext/stream.dart';
+import 'package:flutter_core/core.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';

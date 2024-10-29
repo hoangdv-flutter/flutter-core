@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_core/core.dart';
-import 'package:flutter_core/ext/list.dart';
 import 'package:flutter_core/theme/app_theme.dart';
 
 abstract class MyListView<D> extends StatefulWidget {

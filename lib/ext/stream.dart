@@ -1,6 +1,4 @@
-import 'dart:async';
-
-import 'package:rxdart/rxdart.dart';
+part of 'exts.dart';
 
 extension StreamExt<T> on StreamController<T> {
   void addSafety(T value) {
