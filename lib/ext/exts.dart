@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
@@ -22,3 +23,4 @@ part 'int.dart';
 part 'list.dart';
 part 'number.dart';
 part 'stream.dart';
+part 'file.dart';

@@ -2,6 +2,8 @@ part of 'util.dart';
 
 
 class DirManager {
+
+
   static Future<String> getInternalDir(String dir) async {
     final root = await getApplicationDocumentsDirectory();
     final recordingDir = Directory("${root.path}/$dir");
@@ -10,4 +12,6 @@ class DirManager {
     }
     return recordingDir.path;
   }
+
+  DirManager._();
 }
