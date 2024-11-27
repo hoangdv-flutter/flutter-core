@@ -9,4 +9,10 @@ extension FileExt on File {
     await file.copy(path);
     await file.delete(recursive: true);
   }
+
+  String get extension => path.split(".").lastOrNull ?? '';
+
+  String get name => path.replaceAll("\\", "/").split("/").last;
+
+  String get nameWithoutExtension => path.replaceAll("\\", "/").split("/").last.split(".").first;
 }
