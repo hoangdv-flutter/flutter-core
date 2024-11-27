@@ -6,8 +6,8 @@ extension FileExt on File {
     await file.parent.let(
       call: (value) => file.create(recursive: true),
     );
-    await file.copy(path);
-    await file.delete(recursive: true);
+    await copy(path);
+    await delete(recursive: true);
   }
 
   String get extension => path.split(".").lastOrNull ?? '';
