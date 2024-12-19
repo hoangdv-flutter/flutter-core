@@ -1,4 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_core/core.dart';
+
 part 'equatable.dart';
+part 'language.dart';
 
 abstract class Equatable {
   List<dynamic> get properties;

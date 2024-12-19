@@ -1,0 +1,9 @@
+
+* Script for localization language
+
+    dart run easy_localization:generate --source-dir assets/app/locale --output-dir lib/resource/language --output-file language_keys.g.dart
+    dart run easy_localization:generate -f keys --source-dir assets/app/locale --source-file en.json --output-dir lib/resource/language -o locale_keys.g.dart
+
+* Script for build runner, dependency injection, assets, etc,...
+
+    dart run build_runner build --delete-conflicting-outputs
