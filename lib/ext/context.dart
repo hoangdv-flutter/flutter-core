@@ -41,8 +41,8 @@ extension ContextExt on BuildContext {
   }
 
   Size get renderSize {
-    final renderBox = findRenderObject() as RenderBox;
-    return renderBox.size;
+    final renderBox = findRenderObject() as RenderBox?;
+    return renderBox?.size ?? Size.zero;
   }
 
   RelativeRect get widgetGlobalPosition {
