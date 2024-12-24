@@ -1,8 +1,7 @@
 part of 'exts.dart';
 
-
-extension NumberExt on num {
-  num surroundWithRange(num minNum, num maxNum) {
+extension DoubleExt on double {
+  double surroundWithRange(double minNum, double maxNum) {
     return max(minNum, min(maxNum, this));
   }
 }

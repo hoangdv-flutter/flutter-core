@@ -6,6 +6,10 @@ extension IntExt on int {
     return DateFormat(format).format(DateTime.fromMillisecondsSinceEpoch(this));
   }
 
+  int surroundWithRange(int minNum, int maxNum) {
+    return max(minNum, min(maxNum, this));
+  }
+
   String get secondsToTimeCountDown {
     var minute = this ~/ 60;
     var seconds = this % 60;
