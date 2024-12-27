@@ -7,6 +7,11 @@ extension RectExt on Rect {
         other.top > top &&
         other.bottom < bottom;
   }
+
+  Rect copy({double? left, double? top, double? right, double? bottom}) {
+    return Rect.fromLTRB(left ?? this.left, top ?? this.top,
+        right ?? this.right, bottom ?? this.bottom);
+  }
 }
 
 extension OffsetExt on Offset {
