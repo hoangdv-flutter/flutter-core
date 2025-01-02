@@ -16,15 +16,13 @@ abstract class MyListViewState<D, T extends StatefulWidget>
 
   var _listState = ListState.loading;
 
-  var _isListen = false;
-
   @protected
   var useAnimated = false;
 
   @override
   void initState() {
     super.initState();
-    _isListen = false;
+    setupCubitLogic();
   }
 
   @protected
@@ -35,10 +33,6 @@ abstract class MyListViewState<D, T extends StatefulWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (!_isListen) {
-      setupCubitLogic();
-      _isListen = true;
-    }
     if (_listState == ListState.loading) return buildLoading();
     if (_listState == ListState.loaded && listData.isEmpty) {
       return buildPlaceholder();
