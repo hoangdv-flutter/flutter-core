@@ -8,7 +8,7 @@ abstract class BaseState<W extends StatefulWidget> extends State<W> {
     try {
       if (!context.mounted || !mounted) return;
       super.setState(fn);
-    } catch (e) {}
+    } catch (_) {}
   }
 }
 

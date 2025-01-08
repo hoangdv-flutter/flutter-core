@@ -26,7 +26,7 @@ abstract class BaseScreenState<S extends StatefulWidget> extends BaseState<S>
           }
           if (didPop) return;
           final r = await onBackPressed(context);
-          if (r && !context.mounted) {
+          if (r && context.mounted) {
             context.popScreen();
           }
         },
@@ -58,7 +58,7 @@ abstract class BaseScreen extends StatelessWidget with BaseScreenMixin {
           }
           if (didPop) return;
           final r = await onBackPressed(context);
-          if (r && !context.mounted) {
+          if (r && context.mounted) {
             context.popScreen();
           }
         },
@@ -76,11 +76,10 @@ class ScreenTemplate extends StatelessWidget {
   final Color backgroundColor;
 
   const ScreenTemplate(
-      {Key? key,
+      {super.key,
       required this.child,
       this.additionBackground = const [],
-      this.backgroundColor = Colors.white})
-      : super(key: key);
+      this.backgroundColor = Colors.white});
 
   @override
   Widget build(BuildContext context) {

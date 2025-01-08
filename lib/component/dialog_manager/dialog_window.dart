@@ -4,7 +4,7 @@ import 'package:flutter_core/base_dialog.dart';
 class DialogWindow extends BaseDialogStateful {
   final Widget? child;
 
-  const DialogWindow({this.child, Key? key}) : super(key: key);
+  const DialogWindow({this.child, super.key});
 
   @override
   State<DialogWindow> createState() => DialogWindowsState();
