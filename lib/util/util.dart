@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_core/core.dart';
 import 'package:flutter_core/theme/app_theme.dart';
 import 'package:injectable/injectable.dart';
@@ -20,3 +21,4 @@ part 'global_dialog/confirm_dialog.dart';
 part 'math/polygon.dart';
 part 'page_router_creator.dart';
 part 'transition_helper.dart';
+part 'file_loader_helper.dart';
