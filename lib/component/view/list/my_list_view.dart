@@ -92,6 +92,8 @@ abstract class MyListViewState<D, T extends StatefulWidget>
               index: event.index, needToSetState: needToUpdateState);
         }
         break;
+      case ItemUpdateAction.loading:
+        break;
     }
   }
 
@@ -206,6 +208,10 @@ abstract class MyListViewState<D, T extends StatefulWidget>
         break;
       case ItemUpdateAction.remove:
         break;
+      case ItemUpdateAction.loading:
+        _listState  = ListState.loading;
+        replace([]);
+        break;
     }
   }
 }
@@ -244,4 +250,4 @@ class ListItemUpdate<D> {
           action: action ?? this.action);
 }
 
-enum ItemUpdateAction { remove, replace, add }
+enum ItemUpdateAction { remove, replace, add, loading }
