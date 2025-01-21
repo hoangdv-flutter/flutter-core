@@ -27,8 +27,8 @@ class PremiumHolder {
     _updatePremiumStream();
   }
 
-  bool get isPremium => true;
-      // isLifetime || premiumDay > DateTime.now().millisecondsSinceEpoch;
+  bool get isPremium =>
+      isLifetime || premiumDay > DateTime.now().millisecondsSinceEpoch;
 
   late final _isPremiumBS = BehaviorSubject.seeded(isPremium);
 
