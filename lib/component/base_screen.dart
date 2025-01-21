@@ -18,13 +18,15 @@ abstract class BaseScreenState<S extends StatefulWidget> extends BaseState<S>
   @override
   Widget build(BuildContext context) {
     CrashlyticsLogger.logError(runtimeType.toString());
+    var popped = false;
     return PopScope(
         onPopInvokedWithResult: (didPop, result) async {
           if (Platform.isIOS && didPop) {
             onBackPressedIOS();
             return;
           }
-          if (didPop) return;
+          if (didPop || popped) return;
+          popped = true;
           final r = await onBackPressed(context);
           if (r && context.mounted) {
             context.popScreen();
@@ -49,6 +51,7 @@ abstract class BaseScreen extends StatelessWidget with BaseScreenMixin {
 
   @override
   Widget build(BuildContext context) {
+    var popped = false;
     return PopScope(
         canPop: canPop,
         onPopInvokedWithResult: (didPop, result) async {
@@ -56,7 +59,8 @@ abstract class BaseScreen extends StatelessWidget with BaseScreenMixin {
             onBackPressedIOS(context);
             return;
           }
-          if (didPop) return;
+          if (didPop || popped) return;
+          popped = true;
           final r = await onBackPressed(context);
           if (r && context.mounted) {
             context.popScreen();
