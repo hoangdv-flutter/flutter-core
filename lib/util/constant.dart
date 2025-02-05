@@ -24,4 +24,4 @@ class Event {
   static const String openSound = "open_sound";
 }
 
-enum DataState { idle, loaded, loading, error }
+enum DataState { idle, loaded, loading, error, open, close }
