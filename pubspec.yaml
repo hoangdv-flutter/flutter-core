@@ -19,7 +19,8 @@ dependencies:
   shared_preferences: ^2.0.20
   permission_handler: any
   flutter_bloc: ^8.1.2
-  firebase_crashlytics: any
+#  firebase_analytics: any
+#  firebase_crashlytics: any
   async: ^2.10.0
   connectivity_plus: any
   path_provider: ^2.0.15
