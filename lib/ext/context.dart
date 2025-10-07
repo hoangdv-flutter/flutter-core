@@ -25,7 +25,7 @@ extension ContextExt on BuildContext {
     return await completer.future;
   }
 
-  popScreen<T extends Object?>({T? result}) async {
+  Future<void> popScreen<T extends Object?>({T? result}) async {
     try {
       if (Navigator.canPop(this)) {
         Navigator.pop(this, result);

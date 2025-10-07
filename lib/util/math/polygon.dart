@@ -52,7 +52,9 @@ class RectRotated {
         if (minA != null &&
             minB != null &&
             maxA != null &&
-            maxB != null) if (maxA < minB || maxB < minA) return false;
+            maxB != null) if (maxA < minB || maxB < minA) {
+          return false;
+        }
       }
     }
     return true;
@@ -88,7 +90,7 @@ class Point {
   Point(this.x, this.y);
 
   void rotate(double radians, Point c) {
-   final tempX = x - c.x;
+    final tempX = x - c.x;
     final tempY = y - c.y;
     final rotatedX = tempX * cos(radians) - tempY * sin(radians);
     final rotatedY = tempX * sin(radians) + tempY * cos(radians);

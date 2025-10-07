@@ -1,4 +1,4 @@
-library flutter_core;
+library;
 
 export 'base_dialog.dart';
 export 'component/base_screen.dart';

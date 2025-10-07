@@ -7,8 +7,7 @@ abstract class ItemViewStateless<D> extends StatelessWidget {
   @protected
   final int index;
 
-  const ItemViewStateless({Key? key, required this.data, required this.index})
-      : super(key: key);
+  const ItemViewStateless({super.key, required this.data, required this.index});
 }
 
 abstract class ItemViewStateful<D> extends StatefulWidget {
@@ -16,6 +15,5 @@ abstract class ItemViewStateful<D> extends StatefulWidget {
 
   final int index;
 
-  const ItemViewStateful({Key? key, required this.data, required this.index})
-      : super(key: key);
+  const ItemViewStateful({super.key, required this.data, required this.index});
 }

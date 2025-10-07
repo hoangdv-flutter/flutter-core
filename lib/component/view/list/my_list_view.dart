@@ -83,7 +83,7 @@ abstract class MyListViewState<D, T extends StatefulWidget>
         break;
       case ItemUpdateAction.replace:
         if (event.data != null) {
-          update(event.index, event.data!);
+          update(event.index, event.data as D);
         }
         break;
       case ItemUpdateAction.add:
@@ -209,7 +209,7 @@ abstract class MyListViewState<D, T extends StatefulWidget>
       case ItemUpdateAction.remove:
         break;
       case ItemUpdateAction.loading:
-        _listState  = ListState.loading;
+        _listState = ListState.loading;
         replace([]);
         break;
     }

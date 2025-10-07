@@ -14,7 +14,7 @@ class Sizing {
   static var pixelRatio = 1.0;
   static var aspectRatio = 1.0;
 
-  static init(BuildContext context) {
+  static void init(BuildContext context) {
     MediaQuery.of(context).let(call: (value) {
       screenWidth = value.size.width;
       screenHeight = value.size.height;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-setSystemUIColor(Color color,
+void setSystemUIColor(Color color,
     {SystemUiOverlayStyle theme = SystemUiOverlayStyle.dark,
     List<SystemUiOverlay>? overlays}) {
   SystemChrome.setSystemUIOverlayStyle(theme.copyWith(

@@ -8,11 +8,11 @@ abstract class BaseDialogStateless extends StatelessWidget with BaseDialog {
 
   const BaseDialogStateless({super.key, required this.rootContext});
 
-  dismiss<T>({T? result, bool ignoreAds = true}) {
+  void dismiss<T>({T? result, bool ignoreAds = true}) {
     rootContext.popScreen(result: result);
   }
 
-  dismissDialog<T>({T? result, bool ignoreAds = true}) {
+  void dismissDialog<T>({T? result, bool ignoreAds = true}) {
     rootContext.popScreen(result: result);
   }
 }
@@ -27,14 +27,14 @@ abstract class DialogState<D extends BaseDialogStateful> extends BaseState<D> {
   @protected
   var available = true;
 
-  dismiss<T>({T? result, bool ignoreAds = true}) {
+  void dismiss<T>({T? result, bool ignoreAds = true}) {
     if (!available || !context.mounted) return;
     available = false;
     // DialogManager.dismissDialogWindow(ignoreAds: ignoreAds);
     context.popScreen(result: result);
   }
 
-  dismissDialog<T>({T? result, bool ignoreAds = true}) {
+  void dismissDialog<T>({T? result, bool ignoreAds = true}) {
     if (!available || !context.mounted) return;
     available = false;
     context.popScreen(result: result);
