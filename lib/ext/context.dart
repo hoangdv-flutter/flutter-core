@@ -30,9 +30,7 @@ extension ContextExt on BuildContext {
       if (Navigator.canPop(this)) {
         Navigator.pop(this, result);
       }
-    } catch (e) {
-      debugPrint("popScreen ${e.toString()}");
-    }
+    } catch (e) {}
   }
 
   Offset get globalPosition {

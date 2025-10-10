@@ -22,7 +22,6 @@ abstract class BaseCubit<T> extends Cubit<T> {
 
   @override
   Future<void> close() {
-    debugPrint("close cubit $runtimeType");
     return super.close();
   }
 
