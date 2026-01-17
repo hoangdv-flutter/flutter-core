@@ -42,10 +42,10 @@ abstract class MyListViewState<D, T extends StatefulWidget>
 
   @protected
   Widget buildLoading() {
-    return Center(
+    return const Center(
       child: CircularProgressIndicator(
-        strokeWidth: 1.w,
-        valueColor: const AlwaysStoppedAnimation<Color>(Colors.grey),
+        strokeWidth: 5,
+        valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
       ),
     );
   }
