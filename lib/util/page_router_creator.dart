@@ -26,3 +26,17 @@ class RouterCreator {
               builder: (context) => pageBuilder(context, null, null),
               settings: settings);
 }
+
+class MyRoute extends MaterialPageRoute {
+  final Duration duration;
+
+  MyRoute(
+      {required super.builder,
+      this.duration = const Duration(milliseconds: 300)});
+
+  @override
+  Duration get transitionDuration => duration;
+
+  @override
+  Duration get reverseTransitionDuration => duration;
+}
