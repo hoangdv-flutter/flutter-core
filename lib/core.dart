@@ -4,6 +4,7 @@ export 'base_dialog.dart';
 export 'component/base_screen.dart';
 export 'component/base_stateful.dart';
 export 'component/dialog_manager/dialog_manager.dart';
+export 'component/component.dart';
 export 'component/dialog_manager/dialog_window.dart';
 export 'component/navigation/route_setting.dart';
 export 'component/view/bottom_nav/bottom_menu_cubit.dart';
