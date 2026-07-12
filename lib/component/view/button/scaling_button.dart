@@ -63,7 +63,9 @@ class _ScalingButtonState extends State<ScalingButton>
           ? () => _controller.forward(from: 0)
           : null,
       child: Transform.scale(
-          scale: 1 - (widget.scale - 1) * (0.5 - _animation.value).abs() * 2,
+          // Rest = 1.0; nhấn nhún xuống `scale` (mid) rồi trở lại 1.0.
+          // (Công thức cũ cho rest = 1.1 → phóng to child 10% khi đứng yên.)
+          scale: 1 - (1 - widget.scale) * (1 - (2 * _animation.value - 1).abs()),
           child: widget.child),
     );
   }
