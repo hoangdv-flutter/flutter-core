@@ -30,7 +30,13 @@ abstract class BaseScreenState<S extends StatefulWidget> extends BaseState<S>
           final r = await onBackPressed(context);
           if (r && context.mounted) {
             context.popScreen();
+            return;
           }
+          // Không pop (vd `onBackPressed` hiện hộp "bỏ thay đổi?" và người dùng
+          // bấm Huỷ) → NHẢ cờ để lần bấm back sau vẫn vào được `onBackPressed`.
+          // `popped` chỉ là chốt chống-tái-nhập trong lúc `await`, không phải cờ
+          // một-lần: trước đây nó latch mãi nên back lần 2 im lặng không làm gì.
+          popped = false;
         },
         canPop: canPop,
         child: onBuild(context));
@@ -64,7 +70,11 @@ abstract class BaseScreen extends StatelessWidget with BaseScreenMixin {
           final r = await onBackPressed(context);
           if (r && context.mounted) {
             context.popScreen();
+            return;
           }
+          // Xem ghi chú ở `BaseScreenState`: nhả cờ khi KHÔNG pop, nếu không thì
+          // back lần thứ hai bị bỏ qua.
+          popped = false;
         },
         child: onBuild(context));
   }

@@ -22,6 +22,7 @@ class HomeScreen extends BaseScreen {
 
 ### BaseScreenState\<S\> (StatefulWidget state)
 Extends `BaseState`, mixes `BaseScreenMixin`. Override `onBuild`. Exposes `onBackPressed` / `onBackPressedIOS`.
+`onBackPressed` trả `false` = **tôi tự lo việc pop** (vd hiện hộp "bỏ thay đổi?" rồi tự `popScreen`); base KHÔNG pop và **nhả chốt** nên bấm back lần sau vẫn gọi lại `onBackPressed` (fix 2026-08-31: chốt `popped` từng latch mãi ⇒ back lần 2 im lặng không làm gì).
 
 ### BaseState\<W\>
 Safe `setState` — guards `mounted` and swallows errors. Use instead of raw `State<W>`.
